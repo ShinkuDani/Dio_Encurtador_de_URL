@@ -12,3 +12,8 @@ export class MongoConnection {
         }
     }   
 }
+
+/* O trecho do código abaixo é a original e devido as atualizações do mongoose o  useNewUrlParser e o useUnifiedTopology são true sem a necessidade de declara-los por isso eles foram removidos do código.
+try{
+    await mongoose.connect(config.MONGO_CONNECTION, {useNewUrlParser: true, useUnifiedTopology:true })
+    console.log('Database connected') */

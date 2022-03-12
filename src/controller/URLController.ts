@@ -20,14 +20,14 @@ export class URLController {
 
     public async redirect(req: Request, response: Response): Promise<void>{
         const { hash } = req.params
-        const url = await URLModel.findOne({hash})
+        const redUrl = await URLModel.findOne({hash})
 
-        if(url){
-            response.redirect(url.originURL)
+        if(redUrl){
+            response.redirect(redUrl.originURL)
             return
         }
 
-        const url ={
+        const url = {
             originURL:"",
             hash:"",
             short: ""

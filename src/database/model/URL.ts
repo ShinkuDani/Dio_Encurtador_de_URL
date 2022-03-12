@@ -12,4 +12,4 @@ export class URL {
 
 }
 
-export const URLModel = new URL().getModelForClass(URL)
+export const URLModel = getModelForClass(URL)

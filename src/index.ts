@@ -6,7 +6,7 @@ const api = express()
 api.use(express.json)
 
 const database = new MongoConnection()
-databse.connect()
+database.connect()
 
 const urlController = new URLController()
 api.post("/shorten", urlController.shorten)

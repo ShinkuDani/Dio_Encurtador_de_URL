@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.URLModel = exports.URL = void 0;
+exports.URL = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
 class URL {
 }
@@ -26,5 +26,6 @@ __decorate([
     __metadata("design:type", String)
 ], URL.prototype, "shortURL", void 0);
 exports.URL = URL;
-exports.URLModel = (0, typegoose_1.getModelForClass)(URL);
+const URLModel = (0, typegoose_1.getModelForClass)(URL);
+exports.default = URLModel;
 //# sourceMappingURL=URL.js.map

@@ -14,8 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.URLController = void 0;
 const shortid_1 = __importDefault(require("shortid"));
-const Constants_1 = require("config/Constants");
-const URL_1 = require("database/model/URL");
+const Constants_1 = require("../config/Constants");
+const URL_1 = require("../database/model/URL");
 class URLController {
     shorten(req, response) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -34,16 +34,11 @@ class URLController {
     redirect(req, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const { hash } = req.params;
-            const url = yield URL_1.URLModel.findOne({ hash });
-            if (url) {
-                response.redirect(url.originURL);
+            const redUrl = yield URL_1.URLModel.findOne({ hash });
+            if (redUrl) {
+                response.redirect(redUrl.originURL);
                 return;
             }
-            const url = {
-                originURL: "",
-                hash: "",
-                short: ""
-            };
             response.status(400).json({ error: 'URL not Found' });
         });
     }

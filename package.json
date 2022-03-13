@@ -4,7 +4,9 @@
   "description": "Encurtador de URL",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./dist/index.ts",
+    "_comment_dev": "Nesse script é pedido para o nodemon que seja realizado um restart na aplicação quan houver mudanças",
+    "dev": "nodemon ./dist/index.js",
+    "_comment_Buildwatch": "o Buildwatch é um comando que basicamente esta pedindo para que o que toda vez que esse script seja rodado, deve ser gerado um javascript correto na pasta dist",
     "buildwatch": "tsc -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +26,7 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "cors": "^2.8.5",
+    "enlist": "^0.1.0",
     "express": "^4.17.3",
     "mongoose": "^6.2.5",
     "nodemon": "^2.0.15",

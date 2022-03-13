@@ -1,21 +1,21 @@
 import {Request, Response} from 'express'
 import shortid from 'shortid'
-import { config } from 'config/Constants'
-import { URLModel } from 'database/model/URL'
+import { config } from '../config/Constants'
+import { URLModel } from '../database/model/URL'
 
 export class URLController {
     public async shorten(req: Request, response: Response):Promise<void>{
         const{originURL} = req.body
         const url = await URLModel.findOne({originURL})
-        if(url){
-            response.json(url)
-            return
-        }
+         if(url){
+             response.json(url)
+             return
+         }
 
         const hash = shortid.generate()
         const shortURL = `${config.API_URL} / ${hash}`
-        const newURL = await URLModel.create({originURL, hash, shortURL, })
-        response.json(newURL)
+         const newURL = await URLModel.create({originURL, hash, shortURL, })
+         response.json(newURL)
     }
 
     public async redirect(req: Request, response: Response): Promise<void>{
@@ -25,12 +25,6 @@ export class URLController {
         if(redUrl){
             response.redirect(redUrl.originURL)
             return
-        }
-
-        const url = {
-            originURL:"",
-            hash:"",
-            short: ""
         }
 
         response.status(400).json({error: 'URL not Found'})

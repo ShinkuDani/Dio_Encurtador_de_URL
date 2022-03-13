@@ -13,7 +13,9 @@ export class URL  {
 
 }
 
-export const URLModel = getModelForClass(URL)
+const URLModel = getModelForClass(URL);
+
+export default URLModel 
 
 /* devido ao pacote demonstrado na aula ter side depreciado foram realizadas algumas mudanças em relação ao original, sendo que a de baixa é a original. 
 export class URL extends Typegoose  {

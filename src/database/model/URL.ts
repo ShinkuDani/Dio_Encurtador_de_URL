@@ -1,7 +1,7 @@
 import {prop, getModelForClass} from '@typegoose/typegoose'
 //import {prop, Typegoose} from '@hasezoey/typegoose' dependencia depreciada substituida pela @typegoose/typegoose
 
-export class URL  {
+class URL  {
     @prop({required:true})
     hash:string
 
